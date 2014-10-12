@@ -71,6 +71,9 @@
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="268" y="351" width="266" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="onMpgChanged:" destination="vXZ-lx-hvc" eventType="editingChanged" id="SWr-EL-D7l"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fuel Consumption in MPG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDL-Ui-fhe">
                                 <rect key="frame" x="20" y="69" width="203" height="21"/>
@@ -124,6 +127,9 @@
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="268" y="447" width="266" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="onKmChanged:" destination="vXZ-lx-hvc" eventType="editingChanged" id="ZET-lr-JVR"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fuel Consumption in L100KM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNY-dh-d2k">
                                 <rect key="frame" x="20" y="174" width="228" height="21"/>

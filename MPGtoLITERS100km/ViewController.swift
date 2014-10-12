@@ -17,33 +17,21 @@ class ViewController: UIViewController {
     @IBOutlet var l100kmField : UITextField!
     @IBOutlet var mpgTol100kmSwitch: UISwitch!
 
-    var km100Lt = 0.425;
-    var mpg = 2.352;
-    //mpg = (km/lt) * 2.352
-    //km/lt = mpg * 0.425
+    var mpg = 235.214;
+
     var mpgToL100KMDirection: Bool = true;
     
     let mpgTransformDescription = "Transform MPG to L100KM";
     let l100kmTransformDescription = "Transform L100KM to MPG";
     
     @IBAction func transformTapped(sender : AnyObject) {
-        if(mpgToL100KMDirection){
+        if(mpgToL100KMDirection) {
             var mpgValue = Double((mpgField.text as NSString).doubleValue);
-            l100kmField.text = String(format: "%0.2f", mpgValue * km100Lt);
+            l100kmField.text = String(format: "%0.2f", mpg/mpgValue );
         }
-        else{
+        else {
             var l100kmValue = Double((l100kmField.text as NSString).doubleValue);
-            mpgField.text = String(format: "%0.2f", l100kmValue * mpg);
-        }
-    }
-    
-    @IBAction func mpgTol100kmTapped(sender : AnyObject) {
-        mpgToL100KMDirection = !mpgToL100KMDirection;
-        transformButton.setTitle(mpgToL100KMDirection ? mpgTransformDescription : l100kmTransformDescription, forState: UIControlState.Normal);
-        if(mpgToL100KMDirection){
-            mpgField.becomeFirstResponder();
-        } else {
-            l100kmField.becomeFirstResponder();
+            mpgField.text = String(format: "%0.2f", mpg/l100kmValue);
         }
     }
     
@@ -52,14 +40,24 @@ class ViewController: UIViewController {
         l100kmField.resignFirstResponder();
     }
     
+    @IBAction func onMpgChanged(sender : AnyObject){
+        var mpgValue = Double((mpgField.text as NSString).doubleValue);
+        l100kmField.text = mpgValue==0 ? "" : String(format: "%0.2f", mpg/mpgValue );
+    }
+    
+    @IBAction func onKmChanged(sender : AnyObject){
+        var l100kmValue = Double((l100kmField.text as NSString).doubleValue);
+        mpgField.text = l100kmValue==0 ? "" : String(format: "%0.2f", mpg/l100kmValue);
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
 
